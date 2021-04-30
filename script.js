@@ -14,7 +14,10 @@ document.getElementById("color").oninput = function(){
 document.getElementById("size").oninput = function(){
     width = this.value;
 }
-
+document.getElementById("save_image").onclick = function(){
+   let image = cnv.toDataURL("image/jpg")
+   this.href=image;
+}
 cnv.onmousedown = (e) => {
     setTimeout(() => {
         cnv.onmousemove = (event) => {
