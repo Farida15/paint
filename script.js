@@ -65,17 +65,15 @@ cnv.onmousedown = (e) => {
     cnv.onmouseup = () => {
         cnv.onmousemove = null;
     };
-    {
+}
         cnv.ontouchmove = (event) =>{
             if(tool == "Кисточка"){
                 ctx.fillStyle = color;
-                 ctx.fillRect(event.changedTouches[0].pageX - width/2, event.changedTouches[0].pageY- width/2, width, width);
+                 ctx.fillRect(event.changedTouches[0].pageX-cnv.getBoundingClientRect().left- width/2 , event.changedTouches[0].pageY - cnv.getBoundingClientRect().top- width/2, width, width);
             }
                 
             else
-            ctx.clearRect(event.changedTouches[0].pageX - width/2, event.changedTouches[0].pegeY- width/2, width, width)
-        }
-    }
+            ctx.fillRect(event.changedTouches[0].pageX-cnv.getBoundingClientRect().left- width/2 , event.changedTouches[0].pageY - cnv.getBoundingClientRect().top- width/2, width, width);
 }
 //ждём события изменения цвета в для палитры заднего фона
 background.addEventListener('input', changeBackground);
